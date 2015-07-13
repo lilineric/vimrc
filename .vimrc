@@ -72,11 +72,12 @@ filetype plugin on
 filetype indent on 
 
 nnoremap ; :
+nnoremap : ;
 nnoremap <leader>" viw<esc>i"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>i'<esc>hbi'<esc>lel
 nnoremap <c-v> <c-q>
-nnoremap > 0vg_>
-nnoremap < 0vg_<
+"nnoremap > 0vg_>
+"nnoremap < 0vg_<
 
 
 inoremap <a-o> <enter>
