@@ -58,6 +58,7 @@ set cursorline
 set incsearch
 "高亮搜索
 set hlsearch
+set ignorecase startcase
 
 "与Windows共享剪贴板
 set clipboard+=unnamed
