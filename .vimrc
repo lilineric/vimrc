@@ -1,4 +1,4 @@
-"设置256位色彩
+"设置256位
 set t_Co=256
 set background=dark
 
