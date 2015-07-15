@@ -9,6 +9,9 @@ if(has("win32") || has("win64") || has("win95") || has("win16"))
 else
     let g:islinux = 1
 endif
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
  
 " -----------------------------------------------------------------------------
 "  < 判断是终端还是 Gvim >
@@ -103,8 +106,15 @@ inoremap jk <esc>
 
 "保存html时自动格式化
 autocmd BufWritePre *.html :normal gg=
-autocmd FileType python nnoremap <c-F5> :w<cr>:!python %<cr>
-autocmd FileType python nnoremap <F5> :w<cr>:!python %
+autocmd FileType python noremap <F5> :w<cr>:!python %<cr>
+
+  
+autocmd FileType c noremap <F5> :call CompileRuncc()
+func! CompileRuncc()  
+    exec "w"  
+    exec "!cc % -o %<"  
+    exec "! ./%<"  
+endfunc  
 
 if g:iswindows 
     au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 225)
@@ -155,7 +165,7 @@ if g:islinux
     " 语法关键字补全              
     let g:ycm_seed_identifiers_with_syntax=1  
     " 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT + ;  
-    let g:ycm_key_invoke_completion = '<M-;>'  
+    let g:ycm_key_invoke_completion = '<a-;>'  
     " 设置转到定义处的快捷键为ALT + G，这个功能非常赞  
     nmap <M-g> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>  
 endif
@@ -179,6 +189,16 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 
 let g:pydiction_location = '$VIM/vimfiles/bundle/pydiction/complete-dict'
+
+"indent-guides配置
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=3
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 "Vundle配置
 set nocompatible              " be iMproved, required
@@ -207,7 +227,7 @@ Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -230,6 +250,12 @@ Bundle "https://github.com/elzr/vim-json.git"
 Bundle "https://github.com/rkulla/pydiction.git"
 "缓存区文件查找
 Bundle "https://github.com/kien/ctrlp.vim.git"
+"stl语法高亮
+Bundle "git@github.com:Mizuchi/STL-Syntax.git"
+"可视化缩进
+Bundle "git@github.com:nathanaelkane/vim-indent-guides.git"
+"c++语法高亮
+Plugin 'octol/vim-cpp-enhanced-highlight'
 if g:islinux
     Bundle "https://github.com/Valloric/YouCompleteMe.git"
     Bundle 'Valloric/ListToggle'
