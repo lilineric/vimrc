@@ -101,6 +101,17 @@ nnoremap - g_
 vnoremap 0 ^
 vnoremap ^ 0
 vnoremap - g_
+onoremap 0 ^
+onoremap ^ 0
+onoremap - g_
+onoremap ( i(
+onoremap " i"
+onoremap ' i'
+onoremap { i{
+onoremap [ i[
+inoremap { {<esc>o}<esc><s-o>
+
+
 
 inoremap jk <esc>
 
