@@ -69,11 +69,13 @@ set clipboard+=unnamed
 let &termencoding=&encoding 
 set fileencodings=utf-8,gbk 
 
+
 "开启检测文件类型
 filetype on 
 filetype plugin on 
 filetype indent on 
 
+nnoremap <leader>; A;<esc>o
 nnoremap ; :
 nnoremap : ;
 nnoremap <leader>" viw<esc>i"<esc>hbi"<esc>lel
@@ -82,19 +84,17 @@ nnoremap <c-v> <c-q>
 "nnoremap > 0vg_>
 "nnoremap < 0vg_<
 
-inoremap <a-o> <enter>
-inoremap <a-j> <down>
-inoremap <a-k> <up>
-inoremap <a-h> <left>
-inoremap <a-l> <right>
-inoremap <a-4> <end>
-inoremap <a-0> <home>
-inoremap <a-b> <backspace>
 inoremap <a-d> <esc>ddi
 inoremap <a-w> <esc>bdwi
 inoremap <a-`> ~
-inoremap <a-n> <c-n>
-inoremap <a-p> <c-p>
+noremap <leader>U wbvwU
+noremap <leader>u wbvwu
+nnoremap <a-u> wbvlU
+nnoremap <a-s-u> wbvlu
+
+nnoremap D kddO
+nnoremap J jA
+
 nnoremap 0 ^
 nnoremap ^ 0
 nnoremap - g_
@@ -109,7 +109,8 @@ onoremap " i"
 onoremap ' i'
 onoremap { i{
 onoremap [ i[
-inoremap { {<esc>o}<esc><s-o>
+
+"inoremap { {<esc>o}<esc><s-o>
 
 
 
@@ -188,14 +189,10 @@ set shiftwidth=4
 set expandtab
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
-if g:isGUI
+"if g:isGUI
     " 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
-    autocmd VimEnter * NERDTree
-endif
-" 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）
-let NERDTreeWinPos="left"
-" 当打开 NERDTree 窗口时，自动显示 Bookmarks
-let NERDTreeShowBookmarks=1
+"    autocmd VimEnter * NERDTree
+"endif
 "自动显示行号
 let NERDTreeShowLineNumbers=1
 
