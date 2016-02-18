@@ -264,6 +264,11 @@ Bundle "git@github.com:Mizuchi/STL-Syntax.git"
 Bundle "git@github.com:nathanaelkane/vim-indent-guides.git"
 "c++语法高亮
 Plugin 'octol/vim-cpp-enhanced-highlight'
+"快速增加环绕符号
+Bundle "https://github.com/tpope/vim-surround.git"
+"命令重复增强
+Bundle "https://github.com/tpope/vim-repeat.git"
+
 if g:islinux
     Bundle "https://github.com/Valloric/YouCompleteMe.git"
     Bundle 'Valloric/ListToggle'
