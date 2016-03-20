@@ -1,6 +1,5 @@
 "设置256位
 set t_Co=256
-set background=dark
 
 let g:iswindows = 0
 let g:islinux = 0
@@ -118,7 +117,7 @@ inoremap jk <esc>
 
 "保存html时自动格式化
 autocmd BufWritePre *.html :normal gg=
-autocmd FileType python noremap <F5> :w<cr>:!python %<cr>
+autocmd FileType python noremap <F5> :w<cr>:!python3 %<cr>
 
   
 autocmd FileType c noremap <F5> :call CompileRuncc()
@@ -178,7 +177,7 @@ if g:islinux
     let g:ycm_seed_identifiers_with_syntax=1  
     " 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT + ;  
     let g:ycm_key_invoke_completion = '<a-;>'  
-    " 设置转到定义处的快捷键为ALT + G，这个功能非常赞  
+    " 设置转到定义处的快捷键为ALT + G 
     nmap <M-g> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>  
 endif
 
@@ -224,11 +223,7 @@ endif
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -274,6 +269,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Bundle "https://github.com/tpope/vim-surround.git"
 "命令重复增强
 Bundle "https://github.com/tpope/vim-repeat.git"
+"markdown支持插件
+Bundle "https://github.com/plasticboy/vim-markdown.git"
 
 if g:islinux
     Bundle "https://github.com/Valloric/YouCompleteMe.git"
