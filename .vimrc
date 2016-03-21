@@ -1,5 +1,6 @@
 "设置256位
 set t_Co=256
+set background=dark
 
 let g:iswindows = 0
 let g:islinux = 0
