@@ -114,8 +114,6 @@ onoremap [ i[
 
 
 
-inoremap jk <esc>
-
 "保存html时自动格式化
 autocmd BufWritePre *.html :normal gg=
 autocmd FileType python noremap <F5> :w<cr>:!python3 %<cr>
@@ -217,7 +215,7 @@ if g:iswindows
     set rtp+=$VIM/vimfiles/bundle/vundle/
     call vundle#rc('$VIM/vimfiles/bundle/')
 elseif g:islinux  
-    set rtp+=~/.vim/bundle/Vundle.vim
+    set rtp+=~/.vim/bundle/vundle/
     call vundle#begin()
 endif
 " alternatively, pass a path where Vundle should install plugins
